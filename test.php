@@ -89,37 +89,39 @@ if (isset($_POST['submit'])) {
         $per_page = 2;
         $no_of_page = ceil($count/$per_page);
         $start = ($page - 1)* $per_page;
-        $sql = "SELECT * FROM question limit $start , $per_page";
+        $sql = "SELECT * FROM question ";
         $result = $conn->query($sql);
         while ($row = $result->fetch_assoc()) { 
             if ($row['id'] == $var) { 
+
                 ?>
-        <form id="Test 1" action = "" method = "POST">
+        <form id="Test 1" action = "result.php" method = "POST">
+       
         <label for="name"><?php echo $row['name']; ?></label><br><br>
         
         <label class="container"><?php echo $row['option1']; ?>
-        <input type="radio" checked="checked" name="radio">
+        <input type="radio" checked="checked" name="radio1">
         <span class="checkmark"></span>
         </label>
         <label class="container"><?php echo $row['option2']; ?>
-        <input type="radio" checked="checked" name="radio">
+        <input type="radio" checked="checked" name="radio1">
         <span class="checkmark"></span>
         </label>
         <label class="container"><?php echo $row['option3']; ?>
-        <input type="radio" checked="checked" name="radio">
+        <input type="radio" checked="checked" name="radio1">
         <span class="checkmark"></span>
         </label>
         <label class="container"><?php echo $row['option4']; ?>
-        <input type="radio" checked="checked" name="radio">
+        <input type="radio" checked="checked" name="radio1">
         <span class="checkmark"></span>
         </label>
         </select>
-        <br>     
-
-        <p><input type="submit" name="submit" value="Submit"></p>
-        <div class="row">
-        <p><a href="test.php?page='".($page-1). & id=$var">Previous</a></p>
-        <p><a href=""  class="app-button2">Next</a></p></div>
+        <br>  
+        
+        <p><input type="submit" name="submit" value="Next"></p>
+        <div class="row"> 
+        <p><a href="#" class="app-button"></a></p>
+        <p><a href="#"  class="app-button2"></a></p></div>
         </form> <?php
             }
         } ?>
